@@ -19,14 +19,20 @@ pipeline {
         }
 
         stage('Packaging/Pushing image') {
-
-            steps {
-                withDockerRegistry(credentialsId: 'dockerhubAccount', url: 'registry-1.docker.io') {
+    steps {
+        script {
+            try {
+                withDockerRegistry(credentialsId: 'dockerhubAccount', url: 'https://registry-1.docker.io') {
                     sh 'docker build -t tuannguyen333/springboot .'
                     sh 'docker push tuannguyen333/springboot'
                 }
+            } catch (Exception e) {
+                echo "Error occurred: ${e.getMessage()}"
+                error "Failed to build and push Docker image"
             }
         }
+    }
+}
 
         stage('Deploy MySQL to DEV') {
             steps {
