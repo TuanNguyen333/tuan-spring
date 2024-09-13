@@ -34,6 +34,12 @@ pipeline {
     }
 }
 
+    stage('Test Docker') {
+    steps {
+        sh 'docker --version'
+    }
+}
+
         stage('Deploy MySQL to DEV') {
             steps {
                 echo 'Deploying and cleaning'
