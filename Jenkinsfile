@@ -1,6 +1,8 @@
 pipeline {
 
     agent any
+    
+    tools {dockerTool  "docker" }
 
     tools { 
         maven 'my-maven' 
