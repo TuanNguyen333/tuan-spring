@@ -1,11 +1,11 @@
 pipeline {
 
     agent any
-    
-    tools {dockerTool  "docker" }
+
 
     tools { 
         maven 'my-maven' 
+        dockerTool  'docker'
     }
     environment {
         MYSQL_ROOT_LOGIN = credentials('mysql-root')
