@@ -20,7 +20,7 @@ services:
   mysql:
     container_name: tuannguyen333-java-mysql
     image: "mysql:8.0"
-    environment:
+    environment:s
       MYSQL_ROOT_PASSWORD: Mtuan03112004
       MYSQL_DATABASE: db_example
       MYSQL_USER: tuan
